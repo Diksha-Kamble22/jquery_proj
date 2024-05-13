@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div  style="width: 18rem;">
+        <img src="doraemon.png" class="cardImage" alt="Doraemon" style=" width:100%;
+        height: 100%;border: 2%;
+        position: relative;">
+        <div class="Cb">
+          <h5 class="title">Doraemon Movie</h5>
+          <p class="carT">Doraemon and friends go on an adventure to meet new buddies, connect to people with music,
+             and save the world from a crisis.</p>
+<button class="shop2" style="text-decoration: none; padding: 10px;
+    color: #ffffff;
+    background:linear-gradient(to right,#4582ff 0%,#e700d1 50%,#4582ff 100%);
+    background-size: 200%;">Go somewhere</button>
+    <button class="show">shjow</button>
+        </div>
+      </div>
+</body>
+<script>
+ $(document).ready(function(){
+		$("button").click(function(){
+		  $("p").fadeIn();
+		});
+		$("shop2").click(function(){
+		  $(".carT").slideUp();
+      
+      
+		});
+	  });
+
+    </script>
+</html>

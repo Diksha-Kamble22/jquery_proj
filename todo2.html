@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login or Sign Up</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Login function
+    $('#loginForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: formData,
+            success: function(response) {
+                // Handle successful login
+                alert('Logged in successfully!');
+                // Redirect to dashboard or other page
+                window.location.href = 'dashboard.php';
+            },
+            error: function(xhr, status, error) {
+                // Handle login error
+                alert('Login failed. Please try again.');
+            }
+        });
+    });
+
+    // Sign up function
+    $('#signupForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: 'signup.php',
+            data: formData,
+            success: function(response) {
+                // Handle successful sign up
+                alert('Signed up successfully! You can now log in.');
+                // Clear sign up form fields
+                $('#signupForm')[0].reset();
+            },
+            error: function(xhr, status, error) {
+                // Handle sign up error
+                alert('Sign up failed. Please try again.');
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+
+<!-- Login Form -->
+<form id="loginForm">
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="username" required><br>
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="password" required><br>
+    <button type="submit">Login</button>
+</form>
+
+<!-- Sign Up Form -->
+<form id="signupForm">
+    <label for="signupUsername">Username:</label>
+    <input type="text" id="signupUsername" name="username" required><br>
+    <label for="signupEmail">Email:</label>
+    <input type="email" id="signupEmail" name="email" required><br>
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" name="password" required><br>
+    <button type="submit">Sign Up</button>
+</form>
+
+</body>
+</html>
